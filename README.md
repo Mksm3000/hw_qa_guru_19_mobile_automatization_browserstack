@@ -1,0 +1,1 @@
+# hw_qa_guru_19_mobile_automatization_browserstack
