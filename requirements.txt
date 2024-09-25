@@ -1,0 +1,7 @@
+allure-pytest==2.13.5
+Appium-Python-Client==4.2.0
+pytest==8.3.3
+selene==2.0.0rc9
+
+python-dotenv~=1.0.1
+selenium~=4.25.0
