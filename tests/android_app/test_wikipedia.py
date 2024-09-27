@@ -1,6 +1,6 @@
 from allure_commons._allure import step
 from appium.webdriver.common.appiumby import AppiumBy
-from selene import browser, have
+from selene import browser, have, be
 
 
 def test_search():
@@ -10,15 +10,10 @@ def test_search():
         browser.element((AppiumBy.ID,
                          'org.wikipedia.alpha:id/search_src_text')).type('Apple')
 
-    with step('Verify content found'):
+    with (step('Verify content found')):
         results = browser.all((AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title'))
         results.should(have.size_greater_than(0))
-        results.first.should(have.text('Apple'))
 
-#     with step('Click on first result'):
-#         browser.element(AppiumBy.ID, 'org.wikipedia.alpha:id/page_list_item_title').click()
-#
-#
-# index	5
-# package	org.wikipedia.alpha
-# class	android.widget.TextView
+    with step('Click on "Apple Inc."'):
+        results.element_by(have.text('Apple Inc.')).click()
+
