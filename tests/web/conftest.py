@@ -18,7 +18,7 @@ def browser_management():
     )
     browser.config.window_width = os.getenv('window_width', '1920')
     browser.config.window_height = os.getenv('window_height', '1080')
-    browser.config.timeout = float(os.getenv('timeout', '10.0'))
+    browser.config.timeout = float(os.getenv('timeout', '4.0'))
 
     yield
 
