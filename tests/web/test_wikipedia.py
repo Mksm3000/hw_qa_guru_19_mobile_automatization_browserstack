@@ -6,7 +6,7 @@ def test_search():
     browser.open('/')
 
     with step('Type search'):
-        browser.element("//input[@id='searchInput']").type('Apple')
+        browser.element('#searchInput').type('Apple')
 
     with step('Verify content found'):
         results = browser.all('.suggestion-link')
