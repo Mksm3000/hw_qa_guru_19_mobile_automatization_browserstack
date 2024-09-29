@@ -5,32 +5,23 @@ import requests
 
 
 def png_attachment(browser):
-    allure.attach(browser.driver.get_screenshot_as_png(),
-                  name='screenshot',
-                  attachment_type=allure.attachment_type.PNG)
+    allure.attach(browser.driver.get_screenshot_as_png(), 'screenshot',
+                  allure.attachment_type.PNG)
 
 
 def xml_attachment(browser):
-    allure.attach(source=browser.driver.page_source,
-                  name='screen xml dump',
-                  attachment_type=allure.attachment_type.XML,
-                  extension='.xml')
+    allure.attach(browser.driver.page_source, 'screen xml dump',
+                  allure.attachment_type.XML, '.xml')
 
 
 def log_attachment(browser):
     log = "".join(f'{text}\n' for text in browser.driver.get_log(log_type='browser'))
-    allure.attach(source=log,
-                  name='browser_logs',
-                  attachment_type=allure.attachment_type.TEXT,
-                  extension='.log')
+    allure.attach(log, 'browser_logs', allure.attachment_type.TEXT, '.log')
 
 
 def html_attachment(browser):
     html = browser.driver.page_source
-    allure.attach(source=html,
-                  name='page_source',
-                  attachment_type=allure.attachment_type.HTML,
-                  extension='.html')
+    allure.attach(html, 'page_source', allure.attachment_type.HTML, '.html')
 
 
 def web_video_attachment(browser):
@@ -38,10 +29,8 @@ def web_video_attachment(browser):
     html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
            + video_url \
            + "' type='video/mp4'></video></body></html>"
-    allure.attach(source=html,
-                  name='video_' + browser.driver.session_id,
-                  attachment_type=allure.attachment_type.HTML,
-                  extension='.html')
+    allure.attach(html, 'video_' + browser.driver.session_id,
+                  allure.attachment_type.HTML, '.html')
 
 
 def video_attachment(session_id):
@@ -54,5 +43,4 @@ def video_attachment(session_id):
                   '<video width="100%" height="100%" controls autoplay>'
                   f'<source src="{video_url}" type="video/mp4">'
                   '</video></body></html>',
-                  name='video recording',
-                  attachment_type=allure.attachment_type.HTML)
+                  'video recording', allure.attachment_type.HTML)
